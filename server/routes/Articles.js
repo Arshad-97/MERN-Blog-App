@@ -30,4 +30,20 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(400).json(`error:${err}`));
 });
 
+// REQUES FIND ARTICLE BY ID AND UPDATE
+router.put("/update/:id", (req, res) => {
+    Articles.findById(req.params.id)
+    .then(article => {
+        article.title = req.body.title,
+        article.article = req.body.article,
+        article.authorname = req.body.authorname
+
+        article
+        .save()
+        .then(() => res.json("The article is UPDATED successfully !"))
+        .catch(err => res.status(400).json(`error:${err}`));
+    })
+    .catch(err => res.status(400).json(`error:${err}`));
+});
+
 module.exports = router;
