@@ -23,4 +23,11 @@ router.post("/add", (req, res) => {
     .catch(err => res.status(400).json(`error: ${err}`));
 });
 
+// REQUEST FIND ARTICLE BY ID
+router.get("/:id", (req, res) => {
+    Articles.findById(req.params.id)
+    .then(article => res.json(article))
+    .catch(err => res.status(400).json(`error:${err}`));
+});
+
 module.exports = router;
