@@ -13,7 +13,7 @@ function App() {
   const [posts , setPosts] = useState([]);
   useEffect( () => { 
     axios
-    .get("http://localhost:3000/articles")
+    .get("http://localhost:3001/articles")
     .then(res => setPosts(res.data))
     .catch(error => console.log(error));
   });
