@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import spinner from '././spinner-1.gif';
 
+
 const Articles = ({ posts }) => {
     return (
         <MainContainer>

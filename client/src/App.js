@@ -7,7 +7,7 @@ import Header from './components/layout/Header';
 import Navbar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
 import Articles from './components/Articles';
-
+import AddArticle from './components/AddArticle';
 
 function App() {
   const [posts , setPosts] = useState([]);
@@ -21,8 +21,9 @@ function App() {
     <div className="App">
       <Header />
       <Navbar />
-      <Route to="/" render={() => <Articles posts = {posts} /> }/>
-      <Footer />
+      <Route exact path="/" render={() => <Articles posts = {posts} /> }/>
+      <Route path="/add-article" component={AddArticle}/> 
+      <Footer /> 
     </div>
   );
 }
