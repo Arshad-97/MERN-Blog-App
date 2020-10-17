@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const Header = () => {
     return (
-        <MainContainer> <h1> Welcome to  the 
-            <br/>MERN stack blogs! </h1> </MainContainer>
+        <MainContainer> <h1> Welcome to  the
+            <br />MERN stack blogs! </h1> </MainContainer>
     );
-};   
+};
 
 export default Header;
 //MAIN CONTAINER
