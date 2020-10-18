@@ -26,7 +26,7 @@ const Articles = ({ posts }) => {
                 )}
         </MainContainer>
     )
-}
+};
 
 export default Articles;
 
