@@ -59,7 +59,7 @@ const EditArticle = props => {
                         <textarea value={article} onChange={e => setArticle(e.target.value)}
                             className="form-control" rows="3"></textarea>
                     </div>
-                    <button type="submit" className="btn btn-outline-success" >Post Article</button>
+                    <button type="submit" className="btn btn-outline-success" >Update</button>
                 </form>
             </div>
         </AddArticleContainer>

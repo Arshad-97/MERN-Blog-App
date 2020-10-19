@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 import spinner from '././spinner-1.gif';
 import { Link } from 'react-router-dom';
@@ -8,10 +8,10 @@ import Axios from 'axios';
 const Articles = ({ posts }) => {
     const [article, setArticle] = useState([])
     //delete article by ID
-    const deleteArticle = id =>{
+    const deleteArticle = id => {
         Axios.delete(`http://localhost:8080/articles/${id}`)
             .then(res => alert(res.data))
-            setArticle(article.filter(elem => elem._id !==id))
+        setArticle(article.filter(elem => elem._id !== id))
     }
     return (
         <MainContainer>
@@ -19,8 +19,8 @@ const Articles = ({ posts }) => {
             ) : (
                     posts.map((articles, key) => (
                         <div className="container" key={key}>
-                            <Link to={{ 
-                                pathname:`/article/${articles._id}`
+                            <Link to={{
+                                pathname: `/article/${articles._id}`
                             }}>
                                 <h2>{articles.title}</h2>
                             </Link>
@@ -28,7 +28,7 @@ const Articles = ({ posts }) => {
                             <span className="badge badge-secondary p-2">{articles.authorname}</span>
                             <div className="row my-5">
                                 <div className="col-sm-2">
-                                    <Link to={`/update/${articles._id}`}className="btn btn-outline-success">Edit Article</Link>
+                                    <Link to={`/update/${articles._id}`} className="btn btn-outline-success">Edit Article</Link>
                                 </div>
                                 <div className="col-sm-2">
                                     <Link to="/" onClick={() => deleteArticle(articles._id)} className="btn btn-outline-danger">Delete Article</Link>

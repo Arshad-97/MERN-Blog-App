@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import Axios from 'axios';
 import spinner from './spinner-1.gif';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Article = props => {
     const [title, setTitle] = useState('')

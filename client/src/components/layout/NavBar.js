@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from './../blog-logo.png';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
