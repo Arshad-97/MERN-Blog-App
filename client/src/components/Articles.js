@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import spinner from '././spinner-1.gif';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Articles = ({ posts }) => {
@@ -11,7 +11,11 @@ const Articles = ({ posts }) => {
             ) : (
                     posts.map((articles, key) => (
                         <div className="container" key={key}>
-                            <h2>{articles.title}</h2>
+                            <Link to={{ 
+                                pathname:`/article/${articles._id}`
+                            }}>
+                                <h2>{articles.title}</h2>
+                            </Link>
                             <p>{articles.article}</p>
                             <span className="badge badge-secondary p-2">{articles.authorname}</span>
                             <div className="row my-5">
