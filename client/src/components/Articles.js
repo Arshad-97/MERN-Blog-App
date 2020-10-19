@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import spinner from '././spinner-1.gif';
+import {Link} from 'react-router-dom';
 
 
 const Articles = ({ posts }) => {
@@ -15,10 +16,10 @@ const Articles = ({ posts }) => {
                             <span className="badge badge-secondary p-2">{articles.authorname}</span>
                             <div className="row my-5">
                                 <div className="col-sm-2">
-                                    <a className="btn btn-outline-success">Edit Article</a>
+                                    <Link to="/edit-article" className="btn btn-outline-success">Edit Article</Link>
                                 </div>
                                 <div className="col-sm-2">
-                                    <a className="btn btn-outline-danger">Delete Article</a>
+                                    <Link to="/delete-article" className="btn btn-outline-danger">Delete Article</Link>
                                 </div>
                             </div>
                         </div>

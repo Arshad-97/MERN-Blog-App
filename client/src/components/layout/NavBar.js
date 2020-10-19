@@ -7,9 +7,9 @@ const NavBar = () => {
     return (
         <NavbarContainer>
             <nav className="navbar navbar-expand-lg navbar-light px-5 py-0">
-                <a className="navbar-brand" href="#">
+                <Link className="navbar-brand" to="/">
                     <img style={{ width: "50px" }} src={logo} alt="logo" />
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
