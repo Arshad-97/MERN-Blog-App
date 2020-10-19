@@ -1,10 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components";
 import spinner from '././spinner-1.gif';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 
 
 const Articles = ({ posts }) => {
+    const [article, setArticle] = useState([])
+    //delete article by ID
+    const deleteArticle = id =>{
+        Axios.delete(`http://localhost:8080/articles/${id}`)
+            .then(res => alert(res.data))
+            setArticle(article.filter(elem => elem._id !==id))
+    }
     return (
         <MainContainer>
             {!posts.length ? (<img src={spinner} alt="loading..." />
@@ -20,10 +28,10 @@ const Articles = ({ posts }) => {
                             <span className="badge badge-secondary p-2">{articles.authorname}</span>
                             <div className="row my-5">
                                 <div className="col-sm-2">
-                                    <Link to="/edit-article" className="btn btn-outline-success">Edit Article</Link>
+                                    <Link to={`/update/${articles._id}`}className="btn btn-outline-success">Edit Article</Link>
                                 </div>
                                 <div className="col-sm-2">
-                                    <Link to="/delete-article" className="btn btn-outline-danger">Delete Article</Link>
+                                    <Link to="/" onClick={() => deleteArticle(articles._id)} className="btn btn-outline-danger">Delete Article</Link>
                                 </div>
                             </div>
                         </div>

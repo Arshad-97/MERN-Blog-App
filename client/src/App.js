@@ -26,7 +26,7 @@ function App() {
       <Route exact path="/" render={() => <Articles posts = {posts} /> }/>
       <Route path="/article/:id" render={(props) => <Article {...props} posts = {posts} /> }/>
       <Route path="/add-article" component={AddArticle}/> 
-      <Route path="/edit-article" component={EditArticle}/> 
+      <Route path="/update/:id" render={(props) => <EditArticle {...props} posts = {posts} /> }/>
       <Footer /> 
     </div>
   );
