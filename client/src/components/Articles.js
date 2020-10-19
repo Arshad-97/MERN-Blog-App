@@ -9,7 +9,7 @@ const Articles = ({ posts }) => {
             {!posts.length ? (<img src={spinner} alt="loading..." />
             ) : (
                     posts.map((articles, key) => (
-                        <div className="container">
+                        <div className="container" key={key}>
                             <h2>{articles.title}</h2>
                             <p>{articles.article}</p>
                             <span className="badge badge-secondary p-2">{articles.authorname}</span>

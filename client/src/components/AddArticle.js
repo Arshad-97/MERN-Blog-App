@@ -1,28 +1,50 @@
+import Axios from 'axios';
 import React,{useState} from 'react'
 import styled from 'styled-components';
 
 const AddArticle = () => {
-    const [title, setTitle] = useState(" ")
-    const [aricle, setArticle] = useState(" ")
-    const [authorname, setAuthorname] = useState(" ");
+    const [title, setTitle] = useState("")
+    const [article, setArticle] = useState("")
+    const [authorname, setAuthorname] = useState("");
+
+    const changeOnClick = e => {
+        e.preventDefault();
+
+        const Articles={
+            title,
+            article,
+            authorname
+        };
+
+        setTitle("");
+        setArticle("");
+        setAuthorname("");
+
+        Axios.post("http://localhost:8080/articles/add", Articles)
+            .then(res => console.log(res.data))
+            .catch(error => {console.error(error)})
+
+    };
+
+
     return (
         <AddArticleContainer>
             <div className="container">
                 <h1>Add New Article</h1>
-                <form>
+                <form onSubmit={changeOnClick} encType="multipart/form-data">
                     <div className="form-group">
                         <label htmlFor="authorname">Author Name</label>
-                        <input type="text"  onChange={e => setAuthorname(e.target.value) }
+                        <input type="text" value ={authorname} onChange={e => setAuthorname(e.target.value) }
                         className="form-control" placeholder="Enter author name" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="title">Title</label>
-                        <input type="text" onChange={e => setTitle(e.target.value) }
+                        <input type="text" value={title} onChange={e => setTitle(e.target.value) }
                         className="form-control" placeholder="Enter title" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="article">Article</label>
-                        <textarea onChange={e => setArticle(e.target.value) }
+                        <textarea value={article} onChange={e => setArticle(e.target.value) }
                         className="form-control" rows="3"></textarea>
                     </div>
                     <button type="submit" className="btn btn-outline-success" >Post Article</button>
